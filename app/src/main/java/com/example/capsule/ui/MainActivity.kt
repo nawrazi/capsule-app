@@ -21,11 +21,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupTabLayout() {
-        val viewPager = binding.homeFragmentTabViewPager.apply {
+        val viewPager = binding.viewPager.apply {
             adapter = MainActivityTabAdapter(this@MainActivity)
         }
 
-        TabLayoutMediator(binding.homeFragmentTabLayout, viewPager) { tab, position ->
+        TabLayoutMediator(binding.tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
                 0 -> getString(R.string.video_tab)
                 1 -> getString(R.string.text_tab)
