@@ -8,7 +8,7 @@ import com.example.capsule.domain.model.DummyData
 class MainViewModel : ViewModel() {
     val lesson = DummyData.lesson
     private val userAnswers: MutableList<Int?> = lesson.quiz.questions.map { null }.toMutableList()
-    private var currentQuestion = MutableLiveData(0)
+    var currentQuestion = MutableLiveData(0)
     var currentQuestionText = MediatorLiveData<String>().apply {
         addSource(currentQuestion) {
             value = lesson.quiz.questions[it].question
