@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.capsule.databinding.FragmentTextBinding
-import com.example.capsule.ui.MainActivityViewModel
+import com.example.capsule.ui.MainViewModel
 
 class TextFragment : Fragment() {
     private var _binding: FragmentTextBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: MainActivityViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

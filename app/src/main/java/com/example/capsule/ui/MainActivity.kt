@@ -5,14 +5,15 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.example.capsule.R
 import com.example.capsule.databinding.ActivityMainBinding
-import com.example.capsule.ui.tabs.MainActivityTabAdapter
+import com.example.capsule.ui.tabs.adapter.MainActivityTabAdapter
+import com.example.capsule.ui.tabs.adapter.ViewPagerSwitcher
 import com.google.android.material.tabs.TabLayoutMediator
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ViewPagerSwitcher {
 
     private var _binding: ActivityMainBinding? = null
     private val binding: ActivityMainBinding get() = _binding!!
-    private val viewModel: MainActivityViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,5 +37,9 @@ class MainActivity : AppCompatActivity() {
                 else -> getString(R.string.result_tab)
             }
         }.attach()
+    }
+
+    override fun switchToTab(tabIndex: Int) {
+        binding.viewPager.currentItem = tabIndex
     }
 }
