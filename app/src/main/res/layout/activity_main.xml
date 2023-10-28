@@ -13,7 +13,6 @@
         android:background="?attr/colorOnPrimary"
         app:titleTextColor="?attr/colorOnSecondary"
         app:navigationIcon="@drawable/ic_back"
-        app:title="@string/blood"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">

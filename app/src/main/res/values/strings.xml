@@ -5,5 +5,4 @@
     <string name="quiz_tab">Quiz</string>
     <string name="result_tab">Result</string>
     <string name="timer">%s min</string>
-    <string name="blood">Blood</string>
 </resources>

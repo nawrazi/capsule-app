@@ -8,13 +8,16 @@ import android.view.ViewGroup
 import android.widget.MediaController
 import android.widget.VideoView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.capsule.R
 import com.example.capsule.databinding.FragmentVideoBinding
+import com.example.capsule.ui.MainActivityViewModel
 
 class VideoFragment : Fragment() {
     private var _binding: FragmentVideoBinding? = null
     private val binding get() = _binding!!
     private lateinit var videoView: VideoView
+    private val viewModel: MainActivityViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
