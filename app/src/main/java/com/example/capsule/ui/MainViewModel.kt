@@ -7,7 +7,7 @@ import com.example.capsule.domain.model.DummyData
 
 class MainViewModel : ViewModel() {
     val lesson = DummyData.lesson
-    val userAnswers: MutableList<Int?> = lesson.quiz.questions.map { null }.toMutableList()
+    private val userAnswers: MutableList<Int?> = lesson.quiz.questions.map { null }.toMutableList()
     private var currentQuestion = MutableLiveData(0)
     var currentQuestionText = MediatorLiveData<String>().apply {
         addSource(currentQuestion) {
@@ -35,5 +35,19 @@ class MainViewModel : ViewModel() {
         if (currentQuestion.value!! < lesson.quiz.questions.size - 1) {
             currentQuestion.value = currentQuestion.value!! + 1
         }
+    }
+
+    fun isCurrentQuestionAnswered(): Boolean {
+        return userAnswers[currentQuestion.value!!] != null
+    }
+
+    fun getCorrectAnswers(): Int {
+        return userAnswers.filterIndexed { index, answer ->
+            answer == lesson.quiz.questions[index].answerIndex
+        }.size
+    }
+
+    fun getTotalQuestions(): Int {
+        return lesson.quiz.questions.size
     }
 }

@@ -29,14 +29,17 @@ class QuizFragment : Fragment(), QuizAdapterListener {
             vm = viewModel
             lifecycleOwner = viewLifecycleOwner
             nextButton.setOnClickListener {
-                if (viewModel.isLastQuestion()) {
-                    val activity = requireActivity()
-                    if (activity is ViewPagerSwitcher) {
-                        activity.switchToTab(3)
-                    }
-                } else {
+                if (!viewModel.isCurrentQuestionAnswered()) return@setOnClickListener
+
+                if (!viewModel.isLastQuestion()) {
                     viewModel.nextQuestion()
                     setAdapterItems()
+                    return@setOnClickListener
+                }
+
+                val activity = requireActivity()
+                if (activity is ViewPagerSwitcher) {
+                    activity.switchToTab(3)
                 }
             }
         }
