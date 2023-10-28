@@ -9,4 +9,8 @@
     <string name="please_complete_the_quiz_first">Please complete the quiz first!</string>
     <string name="results_display">You got %d out of %d</string>
     <string name="times_up">Time\'s up!</string>
+    <string name="ncert_lines">NCERT LINES</string>
+    <string name="read_from_ncert_book">Read from NCERT book</string>
+    <string name="quiz_test">Quiz Test</string>
+    <string name="quiz_questions_preview">Questions: %d</string>
 </resources>

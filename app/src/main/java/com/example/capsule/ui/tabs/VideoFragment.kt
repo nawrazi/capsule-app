@@ -8,16 +8,14 @@ import android.view.ViewGroup
 import android.widget.MediaController
 import android.widget.VideoView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.example.capsule.R
 import com.example.capsule.databinding.FragmentVideoBinding
-import com.example.capsule.ui.MainViewModel
+import com.example.capsule.ui.tabs.adapter.ViewPagerSwitcher
 
 class VideoFragment : Fragment() {
     private var _binding: FragmentVideoBinding? = null
     private val binding get() = _binding!!
     private lateinit var videoView: VideoView
-    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +23,13 @@ class VideoFragment : Fragment() {
     ): View {
         _binding = FragmentVideoBinding.inflate(inflater, container, false)
         videoView = binding.videoView
+
+        binding.nextPageButton.setOnClickListener {
+            val activity = requireActivity()
+            if (activity is ViewPagerSwitcher) {
+                activity.switchToTab(1)
+            }
+        }
 
         return binding.root
     }
