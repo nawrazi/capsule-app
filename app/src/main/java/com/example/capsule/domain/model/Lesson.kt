@@ -5,5 +5,6 @@ data class Lesson(
     val title: String,
     val notes: String,
     val videoUrl: String,
+    val timeInMillis: Long,
     val quiz: Quiz,
 )

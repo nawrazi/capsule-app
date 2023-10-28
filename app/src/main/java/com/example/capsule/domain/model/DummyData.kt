@@ -13,6 +13,7 @@ object DummyData {
         title = "Blood",
         notes = notes,
         videoUrl = "sample_video",
+        timeInMillis = 75000,
         quiz = Quiz(
             id = "2",
             questions = listOf(
